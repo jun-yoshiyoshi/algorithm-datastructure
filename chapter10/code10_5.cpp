@@ -34,6 +34,7 @@ struct Heap
         if (heap.empty())
             return;
         int x = heap.back();
+        heap.pop_back();
         int i = 0;
         while (i * 2 + 1 < (int)heap.size())
         {
