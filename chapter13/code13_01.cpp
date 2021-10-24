@@ -8,7 +8,7 @@ using Graph = vector<vector<int>>;
 
 void search(const Graph &G, int s)
 {
-    int N = (int)G.size();
+    int N = (int)G.size(); //頂点の数
     vector<bool> seen(N, false);
     queue<int> todo;
 
@@ -50,4 +50,5 @@ int main()
     }
 
     search(G, 0);
+    cout << "ok" << endl;
 }

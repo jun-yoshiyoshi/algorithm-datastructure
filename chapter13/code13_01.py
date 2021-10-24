@@ -1,17 +1,15 @@
 import queue
 
 
-def search(G, s):
-    global N
+def search(G, N, s):
     seen = [False]*N
     todo = queue.Queue()
 
     seen[s] = True
     todo.put(s)
 
-    while todo:
+    while not todo.empty():
         v = todo.get()
-
         for i in G[v]:
             if seen[i]:
                 continue
@@ -19,9 +17,13 @@ def search(G, s):
             todo.put(i)
 
 
-# 頂点数 N、　辺の数 M
-N, M = map(int, input().split())
+def main():
+    # 頂点数 N、　辺の数 M
+    N, M = map(int, input().split())
 
-Graph = [map(int, input().split()) for _ in range(M)]
+    Graph = [tuple(map(int, input().split())) for _ in range(M)]
 
-search(Graph, 0)
+    search(Graph, N, 0)
+
+
+main()
