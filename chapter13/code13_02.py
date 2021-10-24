@@ -1,12 +1,13 @@
 
 
-def dfs(G, v):
-    global seen
-    seen[v] = True
-    for i in G[v]:
-        if seen[i]:
-            continue
-        dfs(G, i)
+def dfs(G, s, seen):
+    seen[s] = True
+
+    for i in G:
+        if i[0] == s:
+            if seen[i[1]]:
+                continue
+            dfs(G, i[1], seen)
 
 
 N, M = map(int, input().split())
@@ -19,4 +20,4 @@ seen = [False]*N
 for i in range(N):
     if seen[i]:
         continue
-    dfs(Graph, i)
+    dfs(Graph, i, seen)
