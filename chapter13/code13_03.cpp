@@ -4,13 +4,13 @@
 using namespace std;
 using Graph = vector<vector<int>>;
 
-vector<int> BFS(const Graph &G, int s)
+vector<int> BFS(const Graph &G)
 {
     int N = (int)G.size();
     vector<int> dist(N, -1);
     queue<int> que;
 
-    dist[0] = 0;
+    dist[0] = 0; //始点０からの距離
     que.push(0);
 
     while (!que.empty())
@@ -44,11 +44,9 @@ int main()
         //無向グラフ
         G[b].push_back(a);
     }
-    //スタートs
-    int s;
-    cin >> s;
 
-    vector<int> dist = BFS(G, 0);
+    //始点０は固定
+    vector<int> dist = BFS(G);
 
     for (int v = 0; v < N; ++v)
         cout << v << ":" << dist[v] << endl;
