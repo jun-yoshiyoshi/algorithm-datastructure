@@ -12,7 +12,7 @@ def dfs(G, s, seen):
 
 N, M = map(int, input().split())
 
-Graph = [map(int, input().split()) for _ in range(M)]
+Graph = [tuple(map(int, input().split())) for _ in range(M)]
 
 seen = [False]*N
 
