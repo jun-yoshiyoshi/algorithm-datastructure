@@ -36,6 +36,7 @@ int main()
         cin >> a >> b;
         G[a].push_back(b);
     }
+
     seen.assign(N, false);
     order.clear();
     for (int v = 0; v < N; ++v)
